@@ -31,7 +31,7 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 	g.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	// pprof router
-	pprof.Register(g,nil)
+	pprof.Register(g, nil)
 
 	// api for authentication functionalities
 	g.POST("/login", user.Login)
