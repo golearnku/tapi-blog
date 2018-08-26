@@ -10,7 +10,6 @@ import (
 	"time"
 
 	"github.com/china-golang/tapi-blog/config"
-	"github.com/china-golang/tapi-blog/model"
 	v "github.com/china-golang/tapi-blog/pkg/version"
 	"github.com/china-golang/tapi-blog/router"
 	"github.com/china-golang/tapi-blog/router/middleware"
@@ -19,6 +18,7 @@ import (
 	"github.com/lexkong/log"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
+	"github.com/china-golang/tapi-blog/app/models"
 )
 
 var (
@@ -56,8 +56,8 @@ func main() {
 	}
 
 	// init db
-	model.DB.Init()
-	defer model.DB.Close()
+	models.DB.Init()
+	defer models.DB.Close()
 
 	// Set gin mode.
 	gin.SetMode(viper.GetString("runmode"))

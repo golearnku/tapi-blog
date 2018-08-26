@@ -1,9 +1,9 @@
 package user
 
 import (
-	. "github.com/china-golang/tapi-blog/handler"
+	. "github.com/china-golang/tapi-blog/app/http/controller"
 	"github.com/china-golang/tapi-blog/pkg/errno"
-	"github.com/china-golang/tapi-blog/service"
+	"github.com/china-golang/tapi-blog/app/services"
 
 	"github.com/gin-gonic/gin"
 	"github.com/lexkong/log"
@@ -25,7 +25,7 @@ func List(c *gin.Context) {
 		return
 	}
 
-	infos, count, err := service.ListUser(r.Username, r.Offset, r.Limit)
+	infos, count, err := services.ListUser(r.Username, r.Offset, r.Limit)
 	if err != nil {
 		SendResponse(c, err, nil)
 		return

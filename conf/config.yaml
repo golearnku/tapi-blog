@@ -11,7 +11,7 @@ tls:
 log:
   writers: stdout
   logger_level: DEBUG
-  logger_file: log/tapi-blog.log
+  logger_file: storage/logs/log.log
   log_format_text: true
   rollingPolicy: size
   log_rotate_date: 1

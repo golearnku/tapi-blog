@@ -1,7 +1,7 @@
 package user
 
 import (
-	"github.com/china-golang/tapi-blog/model"
+	"github.com/china-golang/go-apiservice/model"
 )
 
 type CreateRequest struct {

@@ -1,11 +1,11 @@
-package service
+package services
 
 import (
 	"fmt"
 	"sync"
 
-	"github.com/china-golang/tapi-blog/model"
 	"github.com/china-golang/tapi-blog/util"
+	"github.com/china-golang/go-apiservice/model"
 )
 
 func ListUser(username string, offset, limit int) ([]*model.UserInfo, uint64, error) {

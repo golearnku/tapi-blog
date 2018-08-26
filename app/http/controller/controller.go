@@ -1,4 +1,4 @@
-package handler
+package controller
 
 import (
 	"net/http"
@@ -24,3 +24,4 @@ func SendResponse(c *gin.Context, err error, data interface{}) {
 		Data:    data,
 	})
 }
+

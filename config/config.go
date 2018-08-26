@@ -52,14 +52,14 @@ func (c *Config) initConfig() error {
 
 func (c *Config) initLog() {
 	passLagerCfg := log.PassLagerCfg{
-		Writers:        viper.GetString("log.writers"),
-		LoggerLevel:    viper.GetString("log.logger_level"),
-		LoggerFile:     viper.GetString("log.logger_file"),
-		LogFormatText:  viper.GetBool("log.log_format_text"),
-		RollingPolicy:  viper.GetString("log.rollingPolicy"),
-		LogRotateDate:  viper.GetInt("log.log_rotate_date"),
-		LogRotateSize:  viper.GetInt("log.log_rotate_size"),
-		LogBackupCount: viper.GetInt("log.log_backup_count"),
+		Writers:        viper.GetString("logs.writers"),
+		LoggerLevel:    viper.GetString("logs.logger_level"),
+		LoggerFile:     viper.GetString("logs.logger_file"),
+		LogFormatText:  viper.GetBool("logs.log_format_text"),
+		RollingPolicy:  viper.GetString("logs.rollingPolicy"),
+		LogRotateDate:  viper.GetInt("logs.log_rotate_date"),
+		LogRotateSize:  viper.GetInt("logs.log_rotate_size"),
+		LogBackupCount: viper.GetInt("logs.log_backup_count"),
 	}
 
 	log.InitWithConfig(&passLagerCfg)

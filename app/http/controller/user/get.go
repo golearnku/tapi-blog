@@ -1,11 +1,11 @@
 package user
 
 import (
-	. "github.com/china-golang/tapi-blog/handler"
-	"github.com/china-golang/tapi-blog/model"
+	. "github.com/china-golang/tapi-blog/app/http/controller"
 	"github.com/china-golang/tapi-blog/pkg/errno"
 
 	"github.com/gin-gonic/gin"
+	"github.com/china-golang/go-apiservice/model"
 )
 
 // @Summary Get an user by the user identifier

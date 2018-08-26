@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/china-golang/tapi-blog/handler"
+	"github.com/china-golang/tapi-blog/app/http/controller"
 	"github.com/china-golang/tapi-blog/pkg/errno"
 
 	"github.com/gin-gonic/gin"
@@ -54,7 +54,7 @@ func Logging() gin.HandlerFunc {
 		method := c.Request.Method
 		ip := c.ClientIP()
 
-		//log.Debugf("New request come in, path: %s, Method: %s, body `%s`", path, method, string(bodyBytes))
+		//logs.Debugf("New request come in, path: %s, Method: %s, body `%s`", path, method, string(bodyBytes))
 		blw := &bodyLogWriter{
 			body:           bytes.NewBufferString(""),
 			ResponseWriter: c.Writer,
@@ -71,7 +71,7 @@ func Logging() gin.HandlerFunc {
 		code, message := -1, ""
 
 		// get code and message
-		var response handler.Response
+		var response controller.Response
 		if err := json.Unmarshal(blw.body.Bytes(), &response); err != nil {
 			log.Errorf(err, "response body can not unmarshal to model.Response struct, body: `%s`", blw.body.Bytes())
 			code = errno.InternalServerError.Code

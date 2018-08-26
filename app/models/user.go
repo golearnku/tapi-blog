@@ -1,4 +1,4 @@
-package model
+package models
 
 import (
 	"fmt"
@@ -7,6 +7,7 @@ import (
 	"github.com/china-golang/tapi-blog/pkg/constvar"
 
 	validator "gopkg.in/go-playground/validator.v9"
+	"sync"
 )
 
 // User represents a registered user.
@@ -14,6 +15,25 @@ type UserModel struct {
 	BaseModel
 	Username string `json:"username" gorm:"column:username;not null" binding:"required" validate:"min=1,max=32"`
 	Password string `json:"password" gorm:"column:password;not null" binding:"required" validate:"min=5,max=128"`
+}
+
+type UserInfo struct {
+	Id        uint64 `json:"id"`
+	Username  string `json:"username"`
+	SayHello  string `json:"sayHello"`
+	Password  string `json:"password"`
+	CreatedAt string `json:"createdAt"`
+	UpdatedAt string `json:"updatedAt"`
+}
+
+type UserList struct {
+	Lock  *sync.Mutex
+	IdMap map[uint64]*UserInfo
+}
+
+// Token represents a JSON web token.
+type Token struct {
+	Token string `json:"token"`
 }
 
 func (c *UserModel) TableName() string {

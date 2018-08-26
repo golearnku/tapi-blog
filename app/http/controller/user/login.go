@@ -1,13 +1,13 @@
 package user
 
 import (
-	. "github.com/china-golang/tapi-blog/handler"
-	"github.com/china-golang/tapi-blog/model"
+	. "github.com/china-golang/tapi-blog/app/http/controller"
 	"github.com/china-golang/tapi-blog/pkg/auth"
 	"github.com/china-golang/tapi-blog/pkg/errno"
 	"github.com/china-golang/tapi-blog/pkg/token"
 
 	"github.com/gin-gonic/gin"
+	"github.com/china-golang/go-apiservice/model"
 )
 
 // @Summary Login generates the authentication token
